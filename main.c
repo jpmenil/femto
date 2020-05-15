@@ -18,17 +18,17 @@ int main(int argc, char **argv)
 	noecho();
 	idlok(stdscr, TRUE);
 
-        start_color();
-        init_pair(ID_DEFAULT, 231, COLOR_BLACK);                /* alpha */
-        init_pair(ID_SYMBOL, 148, COLOR_BLACK);                 /* non alpha, non digit */
-        init_pair(ID_MODELINE, COLOR_BLACK, 225);               /* modeline */
-        init_pair(ID_DIGITS, COLOR_YELLOW, COLOR_BLACK);        /* digits */
-        init_pair(ID_BLOCK_COMMENT, COLOR_CYAN, COLOR_BLACK);   /* block comments */
-        init_pair(ID_LINE_COMMENT, COLOR_CYAN, COLOR_BLACK);    /* line comments */
-        init_pair(ID_SINGLE_STRING, COLOR_YELLOW, COLOR_BLACK); /* single quoted strings */
-        init_pair(ID_DOUBLE_STRING, COLOR_YELLOW, COLOR_BLACK); /* double quoted strings */
-        init_pair(ID_BRACE, COLOR_BLACK, COLOR_CYAN);           /* brace highlight */
-        init_pair(ID_HIGHLIGHT, COLOR_CYAN, COLOR_BLACK);       /* region highlight */
+	start_color();
+	init_pair(ID_DEFAULT, 252, COLOR_BLACK);				/* alpha */
+	init_pair(ID_SYMBOL, COLOR_YELLOW, COLOR_BLACK);		/* non alpha, non digit */
+	init_pair(ID_MODELINE, COLOR_BLACK, 225);				/* modeline */
+	init_pair(ID_DIGITS, COLOR_YELLOW, COLOR_BLACK);		/* digits */
+	init_pair(ID_BLOCK_COMMENT, 39, COLOR_BLACK);			/* block comments */
+	init_pair(ID_LINE_COMMENT, 39, COLOR_BLACK);			/* line comments */
+	init_pair(ID_SINGLE_STRING, COLOR_YELLOW, COLOR_BLACK);	/* single quoted strings */
+	init_pair(ID_DOUBLE_STRING, 118, COLOR_BLACK);			/* double quoted strings */
+	init_pair(ID_BRACE, COLOR_BLACK, COLOR_CYAN);			/* brace highlight */
+	init_pair(ID_HIGHLIGHT, COLOR_CYAN, COLOR_BLACK);		/* region highlight */
 	
 	if (1 < argc) {
 		char bname[NBUFN];
