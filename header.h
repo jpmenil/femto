@@ -487,3 +487,7 @@ extern window_t *split_current_window();
 static inline int compute_percent(int a, int b) {
     return b <= 0 ? 0 : (int)((long long)a * 100 / b);
 }
+
+static inline int isword(int c) {
+    return isalnum(c) && !isspace(c);
+}

@@ -123,9 +123,9 @@ void lnend()
 void backward_word()
 {
 	char_t *p;
-	while (!isspace(*(p = ptr(curbp, curbp->b_point))) && curbp->b_buf < p)
+	while (!isword(*(p = ptr(curbp, curbp->b_point))) && curbp->b_buf < p)
 		--curbp->b_point;
-	while (isspace(*(p = ptr(curbp, curbp->b_point))) && curbp->b_buf < p)
+	while (isword(*(p = ptr(curbp, curbp->b_point))) && curbp->b_buf < p)
 		--curbp->b_point;
 }
 
@@ -150,9 +150,9 @@ void backward_page()
 void forward_word()
 {
 	char_t *p;
-	while (!isspace(*(p = ptr(curbp, curbp->b_point))) && p < curbp->b_ebuf)
+	while (!isword(*(p = ptr(curbp, curbp->b_point))) && p < curbp->b_ebuf)
 		++curbp->b_point;
-	while (isspace(*(p = ptr(curbp, curbp->b_point))) && p < curbp->b_ebuf)
+	while (isword(*(p = ptr(curbp, curbp->b_point))) && p < curbp->b_ebuf)
 		++curbp->b_point;
 }
 
