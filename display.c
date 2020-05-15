@@ -91,11 +91,14 @@ point_t lncolumn(buffer_t *bp, point_t offset, int column)
 
 void display_char(buffer_t *bp, char_t *p)
 {
-        if ( (ptr(bp, bp->b_mark) == p) && (bp->b_mark != NOMARK)) {
-                addch(*p | A_REVERSE);
-		return;
-        } else if (bp->b_paren != NOPAREN && pos(bp,p) == bp->b_paren) {
+        if (bp->b_paren != NOPAREN && pos(bp,p) == bp->b_paren) {
                 attron(COLOR_PAIR(ID_BRACE));
+        } else if ( (bp->b_mark != NOMARK) &&
+                ( ( (pos(bp, p) >= bp->b_mark) && (pos(bp, p) <= bp->b_point) )
+                || ( (pos(bp, p) <= bp->b_mark) && (pos(bp, p) >= bp->b_point) ) ) ) {
+                attron(COLOR_PAIR(ID_HIGHLIGHT));
+                addch(*p | A_STANDOUT);
+                return;
         }
 	addch(*p);
 }

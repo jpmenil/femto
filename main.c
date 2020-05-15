@@ -27,6 +27,7 @@ int main(int argc, char **argv)
         init_pair(ID_SINGLE_STRING, COLOR_YELLOW, COLOR_BLACK); /* single quoted strings */
         init_pair(ID_DOUBLE_STRING, COLOR_YELLOW, COLOR_BLACK); /* double quoted strings */
         init_pair(ID_BRACE, COLOR_BLACK, COLOR_CYAN);           /* brace highlight */
+        init_pair(ID_HIGHLIGHT, COLOR_CYAN, COLOR_BLACK);       /* region highlight */
 	
 	if (1 < argc) {
 		char bname[NBUFN];

@@ -54,6 +54,7 @@ int mkstemp(char *);
 #define ID_DOUBLE_STRING   7
 #define ID_SINGLE_STRING   8
 #define ID_BRACE           9
+#define ID_HIGHLIGHT       10
 
 /* undo types, in matched pairs */
 #define UNDO_T_NONE        0
