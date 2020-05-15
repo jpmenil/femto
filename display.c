@@ -208,6 +208,7 @@ void display_utf8(buffer_t *bp, char_t c, int n)
 void modeline(window_t *wp)
 {
 	int i;
+	int current, lastln;
 	char lch, mch, och;
 	static char modeline[256];
 
@@ -217,8 +218,11 @@ void modeline(window_t *wp)
 	lch = (wp == curwp ? '=' : '-');
 	mch = ((wp->w_bufp->b_flags & B_MODIFIED) ? '*' : lch);
 	och = ((wp->w_bufp->b_flags & B_OVERWRITE) ? 'O' : lch);
+	get_line_stats(&current, &lastln);
 
-	sprintf(modeline, "%c%c%c Femto: %c%c %s",  lch,och,mch,lch,lch, get_buffer_name(wp->w_bufp));
+        sprintf(modeline, "%c%c%c Femto: %c%c %s L%d--C%d--%d%%",
+                lch, och, mch, lch, lch, get_buffer_name(wp->w_bufp),
+                current, wp->w_col, compute_percent(current, lastln));
 	addstr(modeline);
 
 	for (i = strlen(modeline) + 1; i <= COLS; i++)

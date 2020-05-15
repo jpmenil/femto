@@ -483,3 +483,7 @@ extern window_t *find_window(char *);
 extern window_t* new_window();
 extern window_t *popup_window(char *);
 extern window_t *split_current_window();
+
+static inline int compute_percent(int a, int b) {
+    return b <= 0 ? 0 : (int)((long long)a * 100 / b);
+}
