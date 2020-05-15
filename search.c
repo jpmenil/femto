@@ -19,7 +19,8 @@ void search()
 	for (;;) {
 		c = getch();
 		/* ignore control keys other than C-g, backspace, CR,  C-s, C-R, ESC */
-		if (c < 32 && c != 07 && c != 0x08 && c != 0x13 && c != 0x12 && c != 0x1b)
+		if (c < 32 && c != 07 && c != 0x08 && c != 0x13 && c != 0x12 &&
+			c != 0x1b && c != 0x0a)
 			continue;
 
 		switch(c) {
@@ -32,6 +33,7 @@ void search()
 			curbp->b_point = o_point;
 			return;
 
+		case 0x0a:
 		case 0x13: /* ctrl-s, do the search */
 			found = search_forward(searchtext);
 			display_search_result(found, FWD_SEARCH, m_sprompt, searchtext);
