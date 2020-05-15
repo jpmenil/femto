@@ -157,7 +157,7 @@ void display(window_t *wp, int flag)
 				j += wcwidth(c) < 0 ? 1 : wcwidth(c);
 				display_utf8(bp, *p, nch);
 			} else if (isprint(*p) || *p == '\t' || *p == '\n') {
-				j += *p == '\t' ? 8-(j&7) : 1;
+				j += *p == '\t' ? TABSIZE-(j&(TABSIZE-1)) : 1;
 				token_type = parse_text(bp, bp->b_epage);
 				attron(COLOR_PAIR(token_type));
 				display_char(bp, p);

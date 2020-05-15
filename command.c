@@ -176,11 +176,7 @@ void insert()
 	} else {
 		the_char[0] = *input == '\r' ? '\n' : *input;
 		the_char[1] = '\0'; /* null terminate */
-		if (*input == '\t')
-			for (int i = 0; i < TABSIZE; i++)
-				*curbp->b_gap++ = 32;
-		else
-			*curbp->b_gap++ = the_char[0]; 
+		*curbp->b_gap++ = the_char[0]; 
 		curbp->b_point = pos(curbp, curbp->b_egap);
 		/* the point is set so that and undo will backspace over the char */
 		add_undo(curbp, UNDO_T_INSERT, curbp->b_point, the_char, NULL);
