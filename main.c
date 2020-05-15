@@ -13,6 +13,7 @@ int main(int argc, char **argv)
 
 	setlocale(LC_ALL, "") ; /* required for 3,4 byte UTF8 chars */
 	if (initscr() == NULL) fatal(f_initscr);
+	set_tabsize(TABSIZE);
 	raw();
 	noecho();
 	idlok(stdscr, TRUE);

@@ -80,6 +80,8 @@ int mkstemp(char *);
 #define F_CLEAR         1
 #define ZERO_STRING(X) X[0]='\0';
 
+#define TABSIZE 4
+
 typedef unsigned char char_t;
 typedef long point_t;
 typedef void (*void_func)(void);
