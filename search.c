@@ -24,6 +24,7 @@ void search()
 			continue;
 
 		switch(c) {
+		case 0x0a:
 		case 0x1b: /* esc */
 			searchtext[cpos] = '\0';
 			flushinp(); /* discard any escape sequence without writing in buffer */
@@ -33,7 +34,6 @@ void search()
 			curbp->b_point = o_point;
 			return;
 
-		case 0x0a:
 		case 0x13: /* ctrl-s, do the search */
 			found = search_forward(searchtext);
 			display_search_result(found, FWD_SEARCH, m_sprompt, searchtext);
