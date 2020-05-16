@@ -58,6 +58,8 @@ void search()
 				searchtext[cpos] = '\0';
 				display_prompt_and_response(m_sprompt, searchtext);
 			}
+			found = search_forward(searchtext);
+			display_search_result(found, FWD_SEARCH, m_sprompt, searchtext);
 			break;
 		}
 	}
