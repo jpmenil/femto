@@ -99,8 +99,10 @@ point_t search_forward(char *stext)
 		for (s=stext, pp=p; *s == *(ptr(curbp, pp)) && *s !='\0' && pp < end_p; s++, pp++)
 			;
 
-		if (*s == '\0')
+		if (*s == '\0') {
+			curbp->b_mark = p;
 			return pp;
+		}
 	}
 
 	return -1;
@@ -121,6 +123,7 @@ point_t search_backwards(char *stext)
 		if (*s == '\0') {
 			if (p > 0)
 				p--;
+			curbp->b_mark = pp;
 			return p;
 		}
 	}
