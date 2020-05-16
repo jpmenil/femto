@@ -1,3 +1,4 @@
+
 /*
  * command.c, femto, Hugh Barney, Public Domain, 2017
  * Derived from: Anthony's Editor January 93, (Public Domain 1991, 1993 by Anthony Howe)
@@ -225,6 +226,9 @@ void backspace()
 {
 	char_t the_char[7]; /* the deleted char, allow 6 unsigned chars plus a null */
 	int n = prev_utf8_char_size();
+
+	if (curbp->b_mark != NOMARK)
+		kill_region();
 
 	curbp->b_point = movegap(curbp, curbp->b_point);
 
