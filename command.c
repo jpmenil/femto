@@ -175,6 +175,8 @@ void insert()
 			++curbp->b_point;
 		/* FIXME - overwite mode not handled properly for undo yet */
 	} else {
+		if (curbp->b_mark != NOMARK)
+			kill_region();
 		the_char[0] = *input == '\r' ? '\n' : *input;
 		the_char[1] = '\0'; /* null terminate */
 		*curbp->b_gap++ = the_char[0]; 
