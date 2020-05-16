@@ -27,6 +27,7 @@ void search()
 		case 0x0a:
 		case 0x1b: /* esc */
 			searchtext[cpos] = '\0';
+			unmark();
 			flushinp(); /* discard any escape sequence without writing in buffer */
 			return;
 
