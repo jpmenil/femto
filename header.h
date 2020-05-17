@@ -339,6 +339,7 @@ extern void set_point(point_t);
 extern void set_scrap(unsigned char *);
 extern void shell_command(char *);
 extern void cursor_position();
+extern void transpose(void);
 extern void toggle_overwrite_mode();
 extern void unmark();
 extern void up();

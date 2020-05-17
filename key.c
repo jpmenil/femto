@@ -128,7 +128,7 @@ int set_key(char *name, char *funcname)
 void setup_keys()
 {
 	create_keys();
-        set_key_internal("c-a",     "beginning-of-line"     , "\x01", lnbegin);
+	set_key_internal("c-a",     "beginning-of-line"     , "\x01", lnbegin);
 	set_key_internal("c-b",     "backward-char"         , "\x02", left);
 	set_key_internal("c-d",     "delete"                , "\x04", delete);
 	set_key_internal("c-e",     "end-of-line"           , "\x05", lnend);
@@ -142,12 +142,13 @@ void setup_keys()
 	set_key_internal("c-p",     "previous-line"         , "\x10", up);
 	set_key_internal("c-r",     "search-backward"       , "\x12", search);
 	set_key_internal("c-s",     "search-forward"        , "\x13", search);
+	set_key_internal("c-t",     "transpose-char"        , "\x14", transpose);
 	set_key_internal("c-u",     "undo"                  , "\x15", undo_command);
 	set_key_internal("c-v",     "forward-page"          , "\x16", forward_page);
 	set_key_internal("c-w",     "kill-region"           , "\x17", kill_region);
 	set_key_internal("c-y",     "yank"                  , "\x19", yank);
 
-        set_key_internal("esc-a",   "apropos"               , "\x1B\x61", apropos);
+	set_key_internal("esc-a",   "apropos"               , "\x1B\x61", apropos);
 	set_key_internal("esc-b",   "backward-word"         , "\x1B\x62", backward_word);
 	set_key_internal("esc-c",   "copy-region"           , "\x1B\x63", copy_region);
 	set_key_internal("esc-d",   "kill-to-eol"           , "\x1B\x64", user_func);

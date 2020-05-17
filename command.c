@@ -859,3 +859,15 @@ void user_func()
 	}	
 	reset_output_stream();
 }
+
+void transpose(void)
+{
+	static char_t *a, *b, temp;
+
+	a = ptr(curbp, curbp->b_point);
+	b = ptr(curbp, curbp->b_point-1);
+
+	temp = *b;
+	*b = *a;
+	*a = temp;
+}
